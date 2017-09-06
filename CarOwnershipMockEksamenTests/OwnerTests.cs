@@ -59,6 +59,7 @@ namespace CarOwnershipMockEksamen.Tests
                 Assert.Fail("Ingen exception kastet" + ex);
             }
 
+            
 
         }
 
