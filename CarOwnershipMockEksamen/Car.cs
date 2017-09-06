@@ -13,13 +13,16 @@ namespace CarOwnershipMockEksamen
         private string Model { get; set; }
         private string RegistrationNo { get; set; }
 
-
-        //enum readonly laves her
+        private readonly Color c;
+        
         public Car(int doors, string model, string registrationNo)
         {
             this.Doors = doors;
             this.Model = model;
             this.RegistrationNo = registrationNo;
+            
+            
+            
 
 
         }

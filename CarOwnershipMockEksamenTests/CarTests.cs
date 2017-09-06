@@ -20,6 +20,8 @@ namespace CarOwnershipMockEksamen.Tests
 
         [TestMethod()]
 
+        //Den er ville fejle, hvis en exception bliver kastet. Fortæller den tilat kaste en exception og griben den igen.
+
         public void CheckValidDoorsTest5Doors()
         {
             Car c1 = new Car(5, "audi", "9999999");
