@@ -6,56 +6,68 @@ using System.Threading.Tasks;
 
 namespace CarOwnershipMockEksamen
 {
+    public enum Color { Black, White, Gray, Red, Green, Blue }
     public class Car
     {
-        private enum Color { Black, White, Gray, Red, Green, Blue }
-        private int Doors { get; set; }
-        private string Model { get; set; }
-        private string RegistrationNo { get; set; }
+        public Owner owner { get; set; }
 
-        private readonly Color c;
-        
-        public Car(int doors, string model, string registrationNo)
+        private int doors;
+
+        public int Doors
         {
-            this.Doors = doors;
-            this.Model = model;
-            this.RegistrationNo = registrationNo;
-            
-            
-            
-
-
-        }
-
-        
-
-        public int CheckValidDoors()
-        {
-            if (Doors > 5 && Doors < 2)
+            get { return doors; }
+            set
             {
-                throw new ArgumentException("Doors not valid");
+                if (doors <= 2 && doors >= 5)
+                {
+                    throw new ArgumentException("Door number not valid");
+                }
+
+                doors = value;
             }
-            return Doors;
         }
 
-        public string ModelMustNotBeNull()
+
+        private string model;
+
+        public string Model
         {
-            if (String.IsNullOrWhiteSpace(Model))
+            get { return model; }
+            set
             {
-                throw new ArgumentException("Model not valid");
+
+                if (string.IsNullOrWhiteSpace(model))
+                {
+                    throw new ArgumentException("Model not valid");
+                }
+
+                model = value;
             }
-            return Model;
         }
 
-        public string RegistrationNoCheck()
+        private string registrationNr;
+
+        public string RegistrationNr
         {
-            if (RegistrationNo.Length == 7)
-            {
-                return RegistrationNo;
-            }
-            throw new ArgumentException("Registration Number not valid");
+            get { return registrationNr; }
+            set {
+
+                if (RegistrationNr.Length != 7)
+                {
+                    throw new ArgumentException("RegistrationNo not valid");
+                }
+
+                registrationNr = value; }
         }
 
+
+
+        public Car(int Doors, string Model, string RegistrationNr)
+        {
+            this.Doors = Doors;
+            this.Model = Model;
+            this.RegistrationNr = RegistrationNr;
+        }
     }
 
 

@@ -8,61 +8,62 @@ namespace CarOwnershipMockEksamen
 {
     public class Owner
     {
-        //propfull address
-        //private string address;
-        //private string Address
-        //{
-        //    get
-        //    {
-        //        return address;
-        //    }
-        //    set
-        //    {
-        //        if ((value.Length < 6))
-        //        {
-        //            address = value;
-        //        }
-        //    }
-        //}
 
-        private string Address { get; set; }
-        private string Name { get; set; }
-        private string Phone { get; set; }
+        private string address;
 
-        public Owner(string address, string name, string phone)
+        public string Address
         {
-            this.Name = name;
-            this.Address = address;
-            this.Phone = phone;
-        }
+            get { return address; }
+            set {
 
-        public string CheckAddressLength()
-        {
-            if (Address.Length < 6)
-            {
-                throw new ArgumentException("Address not valid");
-            }
-            return Address;
-        }
+                if (Address.Length < 6)
+                {
+                    throw new ArgumentException("Address not valid");
+                }
 
-        public string CheckNameLenght()
-        {
-            if (Name.Length < 4)
-            {
-                throw new ArgumentException("Name not valid");
-            }
-            return Name;
-        }
-
-        public string CheckPhoneLenght()
-        {
-            if (Phone.Length == 8)
-            {
-                return Phone;
-            }
-            throw new ArgumentException("Phone Number not valid");
+                address = value; }
         }
 
 
+
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set {
+
+                if (Name.Length < 4)
+                {
+                    throw new ArgumentException("Name not valid");
+                }
+
+                name = value; }
+        }
+
+
+        private string phone;
+
+        public string Phone
+        {
+            get { return phone; }
+            set {
+
+                if (Phone.Length != 8)
+                {
+                    throw new ArgumentException("PhoneNo not valid");
+                }
+
+                phone = value; }
+        }
+
+
+
+        public Owner(string Address, string Name, string Phone)
+        {
+            this.Name = Name;
+            this.Address = Address;
+            this.Phone = Phone;
+        }
     }
 }
